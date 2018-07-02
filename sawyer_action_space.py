@@ -19,16 +19,16 @@ def on_msg(data):
         idx += 1
 
         if joint not in sawyer_velocity_action_space:
-            sawyer_velocity_action_space[joint] = float(f'{abs(velocity):.4f}')
+            sawyer_velocity_action_space[joint] = round(abs(velocity), 4)
         else:
             if abs(velocity) > sawyer_velocity_action_space[joint]:
-                sawyer_velocity_action_space[joint] = float(f'{abs(velocity):.4f}')
+                sawyer_velocity_action_space[joint] = round(abs(velocity), 4)
 
         if joint not in sawyer_effort_action_space:
-            sawyer_effort_action_space[joint] = float(f'{abs(effort):.4f}')
+            sawyer_effort_action_space[joint] = round(abs(effort), 4)
         else:
             if abs(effort) > sawyer_effort_action_space[joint]:
-                sawyer_effort_action_space[joint] = float(f'{abs(effort):.4f}')
+                sawyer_effort_action_space[joint] = round(abs(effort), 4)
 
 
 def run():
